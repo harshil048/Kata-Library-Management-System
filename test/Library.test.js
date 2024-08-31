@@ -179,4 +179,49 @@ describe('Library Management System', () => {
     expect(book.isAvailable).toBe(false);
   });
 
+  // Test case 29 - Throw an error if user ID is missing while returning a book
+  test('should throw an error if user ID is missing while returning a book', () => {
+    expect(() => library.returnBook(null, '25')).toThrow('User ID is missing.');
+  });
+
+  // Test case 30 - Throw an error if ISBN is missing while returning a book
+  test('should throw an error if ISBN is missing while returning a book', () => {
+    expect(() => library.returnBook(1, null)).toThrow('ISBN is required.');
+  });
+
+  // Test case 31 - Throw an error if user is not found while returning a book
+  test('should throw an error if user is not found while returning a book', () => {
+    expect(() => library.returnBook(1, '26')).toThrow('User not found.');
+  });
+
+  // Test case 32 - Throw an error if book is not found while returning a book
+  test('should throw an error if book is not found while returning a book', () => {
+    library.registerUser
+    library.registerUser(1, 'Alice');
+    expect(() => library.returnBook(1, '27')).toThrow('Book not found.');
+  });
+
+  // Test case 33 - Throw an error if book was not borrowed while returning a book
+  test('should throw an error if book was not borrowed while returning a book', () => {
+    library.registerUser(1, 'Alice');
+    library.addBook('28', 'JavaScript: The Good Parts', 'Douglas Crockford', 2008);
+    expect(() => library.returnBook(1, '28')).toThrow('Books was not borrowed');
+  });
+
+  // Test case 34 - Return a book to the library
+  test('should return a book to the library', () => {
+    library.registerUser(1, 'Alice');
+    library.addBook('29', 'JavaScript: The Good Parts', 'Douglas Crockford', 2008);
+    library.borrowBook(1, '29');
+    library.returnBook(1, '29');
+
+    const user = library.users.get(1);
+    const book = library.books.get('29');
+
+    expect(user.borrowedBooks).not.toContain(book);
+    expect(book.isAvailable).toBe(true);
+  });
+
+
+
 });

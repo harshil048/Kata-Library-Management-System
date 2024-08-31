@@ -108,6 +108,26 @@ class Library {
     book.isAvailable = false;
     user.borrowedBooks.push(book);
   }
+
+  // Return a book to the library
+  returnBook(userId, ISBN) {
+    if (!userId) {
+      throw new Error("User ID is missing.");
+    }
+    if (!ISBN) {
+      throw new Error("ISBN is required.");
+    }
+    const user = this.getUser(userId);
+    const book = this.getBook(ISBN);
+    if (!user.borrowedBooks.includes(book)) {
+      throw new Error('Books was not borrowed');
+    }
+
+    book.isAvailable = true;
+    user.borrowedBooks = user.borrowedBooks.filter(b => b.ISBN != ISBN);
+  }
+
+
 }
 
 module.exports = Library;
