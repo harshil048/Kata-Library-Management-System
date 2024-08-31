@@ -80,6 +80,18 @@ class Library {
     return book;
   }
 
+  // Remove a book from the library
+  removeBook(ISBN) {
+    if (!ISBN) {
+      throw new Error("ISBN is missing.");
+    }
+    if (!this.books.has(ISBN)) {
+      throw new Error("Book not found.");
+    }
+    return this.books.delete(ISBN);
+  }
+
+
 }
 
 module.exports = Library;
