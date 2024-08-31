@@ -20,6 +20,18 @@ class Library {
     this.users.set(userId, user);
   }
 
+  // Get a user from the library
+  getUser(userId) {
+    if (!userId) {
+      throw new Error("User ID is missing.");
+    }
+    const user = this.users.get(userId);
+    if (!user) {
+      throw new Error("User not found.");
+    }
+    return user;
+  }
+
 }
 
 module.exports = Library;
