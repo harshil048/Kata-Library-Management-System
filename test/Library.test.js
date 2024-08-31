@@ -236,13 +236,25 @@ describe('Library Management System', () => {
   test('should get all books borrowed by a user', () => {
     library.registerUser(1, 'Alice');
     library.addBook('30', 'JavaScript: The Good Parts', 'Douglas Crockford', 2008);
-    library.addBook('31', 'JavaScript: The Good Parts', 'Douglas Crockford', 2008);
+    library.addBook('31', 'DSA', 'Douglas', 2009);
     library.borrowBook(1, '30');
     library.borrowBook(1, '31');
 
     const books = library.getBorrowedBooks(1);
     expect(books).toHaveLength(2);
     expect(books[0].ISBN).toBe('30');
+  });
+
+  // Test case 38 - Get all available books in the library
+  test('should get all available books in the library', () => {
+    library.addBook('32', 'JavaScript: The Good Parts', 'Douglas Crockford', 2008);
+    library.addBook('33', 'DSA', 'Douglas', 2009);
+    library.registerUser(1, 'Alice');
+    library.borrowBook(1, '32');
+
+    const books = library.getAvailableBooks();
+    expect(books).toHaveLength(1);
+    expect(books[0].ISBN).toBe('33');
   });
 
 });

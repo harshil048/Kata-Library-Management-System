@@ -1,10 +1,10 @@
 class Book {
   constructor(ISBN, title, author, publicationYear) {
-    this.ISBN = ISBN;
-    this.title = title;
-    this.author = author;
-    this.publicationYear = publicationYear;
-    this.isAvailable = true;
+    this.ISBN = ISBN; // Book ISBN
+    this.title = title; // Book title
+    this.author = author; // Book author
+    this.publicationYear = publicationYear; // Book publication year
+    this.isAvailable = true; // Book availability
   }
 }
 

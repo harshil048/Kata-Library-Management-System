@@ -135,6 +135,11 @@ class Library {
     const user = this.getUser(userId);
     return user.borrowedBooks;
   }
+
+  // Get all available books in the library
+  getAvailableBooks() {
+    return [...this.books.values()].filter(book => book.isAvailable);
+  }
 }
 
 module.exports = Library;
