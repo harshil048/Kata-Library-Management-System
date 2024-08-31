@@ -68,6 +68,17 @@ class Library {
     this.books.set(ISBN, book);
   }
 
+  // Get a book from the library
+  getBook(ISBN) {
+    if (!ISBN) {
+      throw new Error("ISBN is missing.");
+    }
+    const book = this.books.get(ISBN);
+    if (!book) {
+      throw new Error("Book not found.");
+    }
+    return book;
+  }
 
 }
 

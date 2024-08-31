@@ -101,5 +101,22 @@ describe('Library Management System', () => {
     expect(book.title).toBe('JavaScript: The Good Parts');
   });
 
+  // Test case 17 - Throw an error if ISBN is missing while getting a book from the library
+  test('should throw an error if ISBN is missing while getting a book from the library', () => {
+    expect(() => library.getBook(null)).toThrow('ISBN is missing.');
+  });
+
+  // Test case 18 - Throw an error if book is not found while getting a book from the library
+  test('should throw an error if book is not found while getting a book from the library', () => {
+    expect(() => library.getBook('16')).toThrow('Book not found.');
+  });
+
+  // Test case 19 - Get a book from the library
+  test('should get a book from the library', () => {
+    library.addBook('17', 'JavaScript: The Good Parts', 'Douglas Crockford', 2008);
+    const book = library.getBook('17');
+    expect(book).not.toBeNull();
+    expect(book.title).toBe('JavaScript: The Good Parts');
+  });
 
 });
