@@ -222,6 +222,27 @@ describe('Library Management System', () => {
     expect(book.isAvailable).toBe(true);
   });
 
+  // Test case 35 - Throw an error if user ID is missing while getting borrowed books
+  test('should throw an error if user ID is missing while getting borrowed books', () => {
+    expect(() => library.getBorrowedBooks(null)).toThrow('User ID is missing.');
+  });
 
+  // Test case 36 - Throw an error if user is not found while getting borrowed books
+  test('should throw an error if user is not found while getting borrowed books', () => {
+    expect(() => library.getBorrowedBooks(1)).toThrow('User not found.');
+  });
+
+  // Test case 37 - Get all books borrowed by a user
+  test('should get all books borrowed by a user', () => {
+    library.registerUser(1, 'Alice');
+    library.addBook('30', 'JavaScript: The Good Parts', 'Douglas Crockford', 2008);
+    library.addBook('31', 'JavaScript: The Good Parts', 'Douglas Crockford', 2008);
+    library.borrowBook(1, '30');
+    library.borrowBook(1, '31');
+
+    const books = library.getBorrowedBooks(1);
+    expect(books).toHaveLength(2);
+    expect(books[0].ISBN).toBe('30');
+  });
 
 });

@@ -127,7 +127,14 @@ class Library {
     user.borrowedBooks = user.borrowedBooks.filter(b => b.ISBN != ISBN);
   }
 
-
+  // Get all books borrowed by a user
+  getBorrowedBooks(userId) {
+    if (!userId) {
+      throw new Error("User ID is missing.");
+    }
+    const user = this.getUser(userId);
+    return user.borrowedBooks;
+  }
 }
 
 module.exports = Library;
