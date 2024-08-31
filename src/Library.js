@@ -91,7 +91,23 @@ class Library {
     return this.books.delete(ISBN);
   }
 
+  // Borrow a book from the library
+  borrowBook(userId, ISBN) {
+    if (!userId) {
+      throw new Error("User ID is missing.");
+    }
+    if (!ISBN) {
+      throw new Error("ISBN is missing.");
+    }
+    const user = this.getUser(userId);
+    const book = this.getBook(ISBN);
+    if (user.borrowedBooks.includes(book) || book.isAvailable === false) {
+      throw new Error('Books is already borrowed');
+    }
 
+    book.isAvailable = false;
+    user.borrowedBooks.push(book);
+  }
 }
 
 module.exports = Library;

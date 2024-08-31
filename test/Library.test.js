@@ -136,4 +136,47 @@ describe('Library Management System', () => {
     const book = library.books.get('19');
     expect(book).toBeUndefined();
   });
+
+  // Test case 23 - Throw an error if user ID is missing while borrowing a book
+  test('should throw an error if user ID is missing while borrowing a book', () => {
+    expect(() => library.borrowBook(null, '20')).toThrow('User ID is missing.');
+  });
+
+  // Test case 24 - Throw an error if ISBN is missing while borrowing a book
+  test('should throw an error if ISBN is missing while borrowing a book', () => {
+    expect(() => library.borrowBook(1, null)).toThrow('ISBN is missing.');
+  });
+
+  // Test case 25 - Throw an error if user is not found while borrowing a book
+  test('should throw an error if user is not found while borrowing a book', () => {
+    expect(() => library.borrowBook(1, '21')).toThrow('User not found.');
+  });
+
+  // Test case 26 - Throw an error if book is not found while borrowing a book
+  test('should throw an error if book is not found while borrowing a book', () => {
+    library.registerUser(1, 'Alice');
+    expect(() => library.borrowBook(1, '22')).toThrow('Book not found.');
+  });
+
+  // Test case 27 - Throw an error if book is not available while borrowing a book
+  test('should throw an error if book is not available while borrowing a book', () => {
+    library.registerUser(1, 'Alice');
+    library.addBook('23', 'JavaScript: The Good Parts', 'Douglas Crockford', 2008);
+    library.borrowBook(1, '23');
+    expect(() => library.borrowBook(1, '23')).toThrow('Books is already borrowed');
+  });
+
+  // Test case 28 - Borrow a book from the library
+  test('should borrow a book from the library', () => {
+    library.registerUser(1, 'Alice');
+    library.addBook('24', 'JavaScript: The Good Parts', 'Douglas Crockford', 2008);
+    library.borrowBook(1, '24');
+
+    const user = library.users.get(1);
+    const book = library.books.get('24');
+
+    expect(user.borrowedBooks).toContain(book);
+    expect(book.isAvailable).toBe(false);
+  });
+
 });
