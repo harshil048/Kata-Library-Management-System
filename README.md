@@ -17,7 +17,9 @@ Welcome to my solution for the Library Management Kata! This repository demonstr
   - [Clone the Repository](#clone-the-repository)
   - [Install Dependencies](#install-dependencies)
   - [Running Tests](#running-tests)
-- [Test Coverage](#test-coverage)
+- [Test Results](#test-results)
+  - [Test Summary](#test-summary)
+  - [Coverage Report](#coverage-report)
 
 ## Problem Statement
 
@@ -157,59 +159,59 @@ This project follows TDD principles to solve the kata problem. The solution is b
    npm test
    ```
 
-# Library Management System - Test Results
+# Test Results
 
 ## Test Summary
 
 ### User Management
 
-- **should throw an error if user ID is missing** (28 ms)
-- **should throw an error if name is missing** (2 ms)
-- **should throw an error if user already exists** (2 ms)
-- **should add a new user to the library** (1 ms)
-- **should throw an error if user ID is missing while getting a user from the library** (1 ms)
-- **should throw an error if user is not found while getting a user from the library** (1 ms)
-- **should get a user from the library** (1 ms)
-- **should throw an error if user ID is missing while removing a user from the library** (1 ms)
-- **should throw an error if user is not found while removing a user from the library** (1 ms)
-- **should remove a user from the library** (1 ms)
+- **should throw an error if user ID is missing** 
+- **should throw an error if name is missing** 
+- **should throw an error if user already exists** 
+- **should add a new user to the library** 
+- **should throw an error if user ID is missing while getting a user from the library** 
+- **should throw an error if user is not found while getting a user from the library** 
+- **should get a user from the library** 
+- **should throw an error if user ID is missing while removing a user from the library** 
+- **should throw an error if user is not found while removing a user from the library** 
+- **should remove a user from the library** 
 
 ### Book Management
 
-- **should throw an error if ISBN is missing while adding a new book to the library** (2 ms)
-- **should throw an error if title is missing while adding a new book to the library** (4 ms)
-- **should throw an error if author is missing while adding a new book to the library** (1 ms)
-- **should throw an error if publication year is missing while adding a new book to the library** (11 ms)
-- **should throw an error if book already exists while adding a new book to the library** (2 ms)
-- **should add a new book to the library** (1 ms)
-- **should throw an error if ISBN is missing while getting a book from the library** (1 ms)
-- **should throw an error if book is not found while getting a book from the library** (1 ms)
-- **should get a book from the library** (1 ms)
-- **should throw an error if ISBN is missing while removing a book from the library** (1 ms)
-- **should throw an error if book is not found while removing a book from the library** (1 ms)
-- **should remove a book from the library** (1 ms)
+- **should throw an error if ISBN is missing while adding a new book to the library** 
+- **should throw an error if title is missing while adding a new book to the library** 
+- **should throw an error if author is missing while adding a new book to the library** 
+- **should throw an error if publication year is missing while adding a new book to the library**
+- **should throw an error if book already exists while adding a new book to the library** 
+- **should add a new book to the library** 
+- **should throw an error if ISBN is missing while getting a book from the library** 
+- **should throw an error if book is not found while getting a book from the library** 
+- **should get a book from the library** 
+- **should throw an error if ISBN is missing while removing a book from the library** 
+- **should throw an error if book is not found while removing a book from the library** 
+- **should remove a book from the library** 
 
 ### Borrowing and Returning Books
 
-- **should throw an error if user ID is missing while borrowing a book** (1 ms)
-- **should throw an error if ISBN is missing while borrowing a book** (1 ms)
-- **should throw an error if user is not found while borrowing a book** (1 ms)
-- **should throw an error if book is not found while borrowing a book** (1 ms)
-- **should throw an error if book is not available while borrowing a book** (1 ms)
-- **should borrow a book from the library** (1 ms)
-- **should throw an error if user ID is missing while returning a book** (1 ms)
-- **should throw an error if ISBN is missing while returning a book** (1 ms)
-- **should throw an error if user is not found while returning a book** (1 ms)
-- **should throw an error if book is not found while returning a book** (2 ms)
-- **should throw an error if book was not borrowed while returning a book** (2 ms)
-- **should return a book to the library** (1 ms)
+- **should throw an error if user ID is missing while borrowing a book** 
+- **should throw an error if ISBN is missing while borrowing a book** 
+- **should throw an error if user is not found while borrowing a book**
+- **should throw an error if book is not found while borrowing a book** 
+- **should throw an error if book is not available while borrowing a book** 
+- **should borrow a book from the library** 
+- **should throw an error if user ID is missing while returning a book** 
+- **should throw an error if ISBN is missing while returning a book** 
+- **should throw an error if user is not found while returning a book** 
+- **should throw an error if book is not found while returning a book** 
+- **should throw an error if book was not borrowed while returning a book** 
+- **should return a book to the library**
 
 ### Book Availability
 
-- **should throw an error if user ID is missing while getting borrowed books** (1 ms)
-- **should throw an error if user is not found while getting borrowed books** (1 ms)
-- **should get all books borrowed by a user** (1 ms)
-- **should get all available books in the library** (1 ms)
+- **should throw an error if user ID is missing while getting borrowed books** 
+- **should throw an error if user is not found while getting borrowed books** 
+- **should get all books borrowed by a user** 
+- **should get all available books in the library** 
 
 ## Coverage Report
 
