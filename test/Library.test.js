@@ -67,4 +67,39 @@ describe('Library Management System', () => {
     expect(user).toBeUndefined();
   });
 
+  // Test case 11 - Throw an error if ISBN is missing while adding a new book to the library
+  test('should throw an error if ISBN is missing while adding a new book to the library', () => {
+    expect(() => library.addBook(null, 'JavaScript: The Good Parts', 'Douglas Crockford', 2008)).toThrow('ISBN is required.');
+  });
+
+  // Test case 12 - Throw an error if title is missing while adding a new book to the library
+  test('should throw an error if title is missing while adding a new book to the library', () => {
+    expect(() => library.addBook('11', null, 'Douglas Crockford', 2008)).toThrow('Title is required.');
+  });
+
+  // Test case 13 - Throw an error if author is missing while adding a new book to the library
+  test('should throw an error if author is missing while adding a new book to the library', () => {
+    expect(() => library.addBook('12', 'JavaScript: The Good Parts', null, 2008)).toThrow('Author is required.');
+  });
+
+  // Test case 14 - Throw an error if publication year is missing while adding a new book to the library
+  test('should throw an error if publication year is missing while adding a new book to the library', () => {
+    expect(() => library.addBook('13', 'JavaScript: The Good Parts', 'Douglas Crockford', null)).toThrow('PublicationYear is required.');
+  });
+
+  // Test case 15 - Throw an error if book already exists while adding a new book to the library
+  test('should throw an error if book already exists while adding a new book to the library', () => {
+    library.addBook('14', 'JavaScript: The Good Parts', 'Douglas Crockford', 2008);
+    expect(() => library.addBook('14', 'JavaScript: The Good Parts', 'Douglas Crockford', 2008)).toThrow('Books already exists.');
+  });
+
+  // Test case 16 - Add a new book to the library 
+  test('should add a new book to the library', () => {
+    library.addBook('15', 'JavaScript: The Good Parts', 'Douglas Crockford', 2008);
+    const book = library.books.get('15');
+    expect(book).not.toBeNull();
+    expect(book.title).toBe('JavaScript: The Good Parts');
+  });
+
+
 });
