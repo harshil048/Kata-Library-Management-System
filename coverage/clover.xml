@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1725089896344" clover="3.2.0">
-  <project timestamp="1725089896344" name="All files">
+<coverage generated="1725092200429" clover="3.2.0">
+  <project timestamp="1725092200429" name="All files">
     <metrics statements="82" coveredstatements="82" conditionals="48" coveredconditionals="48" methods="15" coveredmethods="15" elements="145" coveredelements="145" complexity="0" loc="82" ncloc="82" packages="1" files="3" classes="3"/>
     <file name="Book.js" path="D:\Kata Library Management System\src\Book.js">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
