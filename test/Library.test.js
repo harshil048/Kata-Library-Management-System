@@ -49,7 +49,22 @@ describe('Library Management System', () => {
     expect(user.name).toBe('Alice');
   });
 
+  // Test case 8 - Throw an error if user ID is missing while removing a user from the library
+  test('should throw an error if user ID is missing while removing a user from the library', () => {
+    expect(() => library.removeUser(null)).toThrow('User ID is missing.');
+  });
 
+  // Test case 9 - Throw an error if user is not found while removing a user from the library
+  test('should throw an error if user is not found while removing a user from the library', () => {
+    expect(() => library.removeUser(1)).toThrow('User not found.');
+  });
 
+  // Test case 10 - Remove a user from the library
+  test('should remove a user from the library', () => {
+    library.registerUser(1, 'Alice');
+    library.removeUser(1);
+    const user = library.users.get(1);
+    expect(user).toBeUndefined();
+  });
 
 });

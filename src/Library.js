@@ -32,6 +32,17 @@ class Library {
     return user;
   }
 
+  // Remove a user from the library
+  removeUser(userId) {
+    if (!userId) {
+      throw new Error("User ID is missing.");
+    }
+    if (!this.users.has(userId)) {
+      throw new Error("User not found.");
+    }
+    this.users.delete(userId);
+  }
+
 }
 
 module.exports = Library;
